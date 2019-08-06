@@ -5,10 +5,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,7 @@ public interface onItemClick{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
        private TextView tvDate,tvTitle,tvDetail,tvDescription;
+       ImageView ivNewsImage;
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
@@ -37,6 +41,9 @@ public interface onItemClick{
             tvTitle=itemView.findViewById(R.id.tvTitle);
             tvDetail=itemView.findViewById(R.id.tvDetail);
             tvDescription=itemView.findViewById(R.id.tvDescription);
+            ivNewsImage=itemView.findViewById(R.id.ivNewsImage);
+
+
 
            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,11 +73,14 @@ public interface onItemClick{
         String title=list.get(position).getTitle();
         String detail=list.get(position).getDetail();
         String description=list.get(position).getDescription();
+        String imageUrl=list.get(position).getImageLink();
 
         holder.tvDate.setText(date);
         holder.tvTitle.setText(title);
         holder.tvDetail.setText(detail);
         holder.tvDescription.setText(description);
+
+        Glide.with(context).load(imageUrl).into(holder.ivNewsImage);
 
 
 

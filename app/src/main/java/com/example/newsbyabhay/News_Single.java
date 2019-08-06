@@ -2,7 +2,7 @@ package com.example.newsbyabhay;
 
 public class News_Single {
 
-private  String date,title,detail,description,link;
+private  String date,title,detail,description,link,imageLink;
 
     public String getDate() {
         return date;
@@ -43,4 +43,13 @@ private  String date,title,detail,description,link;
     public void setLink(String link) {
         this.link = link;
     }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
 }

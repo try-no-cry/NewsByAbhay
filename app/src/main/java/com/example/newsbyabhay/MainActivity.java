@@ -121,6 +121,8 @@ private   ArrayList<News_Single> list;
                         news.setLink(article.getUrl());
                     else news.setLink("");
 
+                    if(article.getUrlToImage()!=null)
+                        news.setImageLink(article.getUrlToImage());
                     //making list of displaying items
                     list.add(news);
 
